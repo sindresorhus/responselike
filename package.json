@@ -1,6 +1,6 @@
 {
   "name": "responselike",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A response-like object for mocking a Node.js HTTP response stream",
   "main": "src/index.js",
   "scripts": {

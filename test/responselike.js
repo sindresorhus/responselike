@@ -15,3 +15,8 @@ test('new Response() throws on invalid statusCode', t => {
 	const error = t.throws(() => new Response('', f.headers, f.body, f.url));
 	t.is(error.message, 'Argument `statusCode` should be a number');
 });
+
+test('new Response() throws on invalid headers', t => {
+	const error = t.throws(() => new Response(f.statusCode, 1, f.body, f.url));
+	t.is(error.message, 'Argument `headers` should be an object');
+});

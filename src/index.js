@@ -15,6 +15,9 @@ class Response extends Readable {
 		if (typeof headers !== 'object') {
 			throw new TypeError('Argument `headers` should be an object');
 		}
+		if (!(body instanceof Buffer)) {
+			throw new TypeError('Argument `body` should be a buffer or UTF-8 string');
+		}
 
 		super();
 		this.statusCode = statusCode;

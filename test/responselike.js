@@ -20,3 +20,8 @@ test('new Response() throws on invalid headers', t => {
 	const error = t.throws(() => new Response(f.statusCode, undefined, f.body, f.url));
 	t.is(error.message, 'Argument `headers` should be an object');
 });
+
+test('new Response() throws on invalid body', t => {
+	const error = t.throws(() => new Response(f.statusCode, f.headers, undefined, f.url));
+	t.is(error.message, 'Argument `body` should be a buffer');
+});

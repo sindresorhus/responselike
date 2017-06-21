@@ -1,5 +1,6 @@
 import test from 'ava';
 import lowercaseKeys from 'lowercase-keys';
+import getStream from 'get-stream';
 import Response from '../';
 import f from './fixtures';
 
@@ -44,4 +45,10 @@ test('response headers have lowercase keys', t => {
 	const response = new Response(f.statusCode, f.headers, f.body, f.url);
 	t.not(JSON.stringify(f.headers), response.headers);
 	t.deepEqual(response.headers, lowercaseKeys(f.headers));
+});
+
+test('response streams body', async t => {
+	const response = new Response(f.statusCode, f.headers, f.body, f.url);
+	const responseStream = await getStream(response);
+	t.is(responseStream, f.bodyText);
 });

@@ -13,6 +13,9 @@ class Response extends Readable {
 		if (!(body instanceof Buffer)) {
 			throw new TypeError('Argument `body` should be a buffer');
 		}
+		if (typeof url !== 'string') {
+			throw new TypeError('Argument `url` should be a string');
+		}
 
 		super();
 		this.statusCode = statusCode;

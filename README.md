@@ -38,6 +38,37 @@ response.pipe(process.stdout);
 // Hi!
 ```
 
+
+## API
+
+### new Response(statusCode, headers, body, url)
+
+Returns a streamable response object similar to a [Node.js HTTP response stream](https://nodejs.org/api/http.html#http_class_http_incomingmessage).
+
+#### statusCode
+
+Type: `number`
+
+HTTP response status code.
+
+#### headers
+
+Type: `object`
+
+HTTP headers object. Keys will be automatically lowercased.
+
+#### body
+
+Type: `buffer`
+
+A Buffer containing the response body. The Buffer contents will be streamable but is also exposed directly as `response.body`.
+
+#### url
+
+Type: `string`
+
+Request URL string.
+
 ## License
 
 MIT © Luke Childs

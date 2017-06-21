@@ -4,6 +4,9 @@ const Readable = require('stream').Readable;
 
 class Response extends Readable {
 	constructor(statusCode, headers, body, url) {
+		if (typeof statusCode !== 'number') {
+			throw new TypeError('Argument `statusCode` should be a number');
+		}
 		super();
 		this.statusCode = statusCode;
 		this.headers = headers;

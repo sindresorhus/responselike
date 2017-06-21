@@ -39,3 +39,9 @@ test('response has expected properties', t => {
 	t.is(response.body, f.body);
 	t.is(response.url, f.url);
 });
+
+test('response headers have lowercase keys', t => {
+	const response = new Response(f.statusCode, f.headers, f.body, f.url);
+	t.not(JSON.stringify(f.headers), response.headers);
+	t.deepEqual(response.headers, lowercaseKeys(f.headers));
+});

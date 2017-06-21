@@ -1,4 +1,5 @@
 import test from 'ava';
+import lowercaseKeys from 'lowercase-keys';
 import Response from '../';
 import f from './fixtures';
 
@@ -29,4 +30,12 @@ test('new Response() throws on invalid body', t => {
 test('new Response() throws on invalid url', t => {
 	const error = t.throws(() => new Response(f.statusCode, f.headers, f.body, undefined));
 	t.is(error.message, 'Argument `url` should be a string');
+});
+
+test('response has expected properties', t => {
+	const response = new Response(f.statusCode, f.headers, f.body, f.url);
+	t.is(response.statusCode, f.statusCode);
+	t.deepEqual(response.headers, lowercaseKeys(f.headers));
+	t.is(response.body, f.body);
+	t.is(response.url, f.url);
 });

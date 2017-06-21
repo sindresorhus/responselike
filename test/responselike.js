@@ -25,3 +25,8 @@ test('new Response() throws on invalid body', t => {
 	const error = t.throws(() => new Response(f.statusCode, f.headers, undefined, f.url));
 	t.is(error.message, 'Argument `body` should be a buffer');
 });
+
+test('new Response() throws on invalid url', t => {
+	const error = t.throws(() => new Response(f.statusCode, f.headers, f.body, undefined));
+	t.is(error.message, 'Argument `url` should be a string');
+});

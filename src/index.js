@@ -1,6 +1,7 @@
 'use strict';
 
 const Readable = require('stream').Readable;
+const lowercaseKeys = require('lowercase-keys');
 
 class Response extends Readable {
 	constructor(statusCode, headers, body, url) {
@@ -19,7 +20,7 @@ class Response extends Readable {
 
 		super();
 		this.statusCode = statusCode;
-		this.headers = headers;
+		this.headers = lowercaseKeys(headers);
 		this.body = body;
 		this.url = url;
 	}

@@ -30,5 +30,8 @@
     "eslint-config-xo-lukechilds": "^1.0.0",
     "nyc": "^10.3.2",
     "xo": "^0.19.0"
+  },
+  "dependencies": {
+    "lowercase-keys": "^1.0.0"
   }
 }

@@ -10,3 +10,8 @@ test('Response cannot be invoked without \'new\'', t => {
 	t.throws(() => Response(f.statusCode, f.headers, f.body, f.url)); // eslint-disable-line new-cap
 	t.notThrows(() => new Response(f.statusCode, f.headers, f.body, f.url));
 });
+
+test('new Response() throws on invalid statusCode', t => {
+	const error = t.throws(() => new Response('', f.headers, f.body, f.url));
+	t.is(error.message, 'Argument `statusCode` should be a number');
+});

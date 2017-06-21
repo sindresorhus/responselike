@@ -5,6 +5,9 @@ const Readable = require('stream').Readable;
 class Response extends Readable {
 	constructor(statusCode, headers, body, url) {
 		headers = headers || {};
+		if (typeof body === 'string' || typeof body === 'undefined') {
+			body = Buffer.from(body || '');
+		}
 
 		if (typeof statusCode !== 'number') {
 			throw new TypeError('Argument `statusCode` should be a number');

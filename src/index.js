@@ -4,11 +4,6 @@ const Readable = require('stream').Readable;
 
 class Response extends Readable {
 	constructor(statusCode, headers, body, url) {
-		headers = headers || {};
-		if (typeof body === 'string' || typeof body === 'undefined') {
-			body = Buffer.from(body || '');
-		}
-
 		if (typeof statusCode !== 'number') {
 			throw new TypeError('Argument `statusCode` should be a number');
 		}
@@ -16,7 +11,7 @@ class Response extends Readable {
 			throw new TypeError('Argument `headers` should be an object');
 		}
 		if (!(body instanceof Buffer)) {
-			throw new TypeError('Argument `body` should be a buffer or UTF-8 string');
+			throw new TypeError('Argument `body` should be a buffer');
 		}
 
 		super();

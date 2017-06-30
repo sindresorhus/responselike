@@ -2,7 +2,10 @@
 
 > A response-like object for mocking a Node.js HTTP response stream
 
-[![Build Status](https://travis-ci.org/lukechilds/responselike.svg?branch=master)](https://travis-ci.org/lukechilds/responselike) [![Coverage Status](https://coveralls.io/repos/github/lukechilds/responselike/badge.svg?branch=master)](https://coveralls.io/github/lukechilds/responselike?branch=master) [![npm](https://img.shields.io/npm/dm/responselike.svg)](https://www.npmjs.com/package/responselike)
+[![Build Status](https://travis-ci.org/lukechilds/responselike.svg?branch=master)](https://travis-ci.org/lukechilds/responselike)
+[![Coverage Status](https://coveralls.io/repos/github/lukechilds/responselike/badge.svg?branch=master)](https://coveralls.io/github/lukechilds/responselike?branch=master)
+[![npm](https://img.shields.io/npm/dm/responselike.svg)](https://www.npmjs.com/package/responselike)
+[![npm](https://img.shields.io/npm/v/responselike.svg)](https://www.npmjs.com/package/responselike)
 
 Returns a streamable response object similar to a [Node.js HTTP response stream](https://nodejs.org/api/http.html#http_class_http_incomingmessage). Useful for formatting cached responses so they can be consumed by code expecting a real response.
 

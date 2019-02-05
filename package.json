@@ -29,7 +29,7 @@
     "coveralls": "^3.0.0",
     "eslint-config-xo-lukechilds": "^1.0.0",
     "get-stream": "^3.0.0",
-    "nyc": "^11.8.0",
+    "nyc": "^13.2.0",
     "xo": "^0.19.0"
   },
   "dependencies": {

@@ -26,7 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.25.0",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.3",
     "eslint-config-xo-lukechilds": "^1.0.0",
     "get-stream": "^3.0.0",
     "nyc": "^11.8.0",

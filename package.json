@@ -33,6 +33,6 @@
     "xo": "^0.19.0"
   },
   "dependencies": {
-    "lowercase-keys": "^1.0.0"
+    "lowercase-keys": "^2.0.0"
   }
 }

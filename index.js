@@ -6,6 +6,7 @@ export default class Response extends ReadableStream {
 	headers;
 	body;
 	url;
+	complete;
 
 	constructor({statusCode, headers, body, url}) {
 		if (typeof statusCode !== 'number') {
@@ -35,5 +36,6 @@ export default class Response extends ReadableStream {
 		this.headers = lowercaseKeys(headers);
 		this.body = body;
 		this.url = url;
+		this.complete = true;
 	}
 }

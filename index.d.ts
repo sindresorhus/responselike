@@ -82,5 +82,12 @@ export default class Response extends ReadableStream {
 	*/
 	readonly url: string;
 
+	/**
+	Whether the response has been received and successfully parsed.
+
+	Starts as `false` and becomes `true` when the stream ends.
+	*/
+	complete: boolean;
+
 	constructor(options?: Options);
 }

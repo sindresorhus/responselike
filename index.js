@@ -6,6 +6,7 @@ export default class Response extends ReadableStream {
 	headers;
 	body;
 	url;
+	complete;
 
 	constructor({statusCode, headers, body, url}) {
 		if (typeof statusCode !== 'number') {
@@ -43,11 +44,6 @@ export default class Response extends ReadableStream {
 		this.headers = lowercaseKeys(headers);
 		this.body = body;
 		this.url = url;
-
-		// `complete` is required for `mimic-response` used by `decompress-response`.
-		this.complete = false;
-		this.once('end', () => {
-			this.complete = true;
-		});
+		this.complete = true;
 	}
 }

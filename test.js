@@ -76,6 +76,7 @@ test('response has expected properties', t => {
 	t.deepEqual(response.headers, lowercaseKeys(headers));
 	t.is(response.body, body);
 	t.is(response.url, url);
+	t.true(response.complete);
 });
 
 test('response headers have lowercase keys', t => {

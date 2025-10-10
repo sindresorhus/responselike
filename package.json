@@ -8,6 +8,8 @@
 	"author": "Luke Childs <lukechilds123@gmail.com> (https://lukechilds.co.uk)",
 	"type": "module",
 	"exports": "./index.js",
+	"types": "./index.d.ts",
+	"sideEffects": false,
 	"engines": {
 		"node": ">=14.16"
 	},

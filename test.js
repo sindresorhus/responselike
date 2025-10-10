@@ -1,3 +1,4 @@
+/* eslint-disable promise/prefer-await-to-then */
 import {Buffer} from 'node:buffer';
 import test from 'ava';
 import lowercaseKeys from 'lowercase-keys';
@@ -9,7 +10,9 @@ const headers = {Foo: 'Bar'};
 const bodyText = 'Hi.';
 const body = Buffer.from(bodyText);
 const url = 'https://example.com';
-const options = {statusCode, headers, body, url};
+const options = {
+	statusCode, headers, body, url,
+};
 
 test('Response is a function', t => {
 	t.is(typeof Response, 'function');
@@ -18,12 +21,16 @@ test('Response is a function', t => {
 test('Response cannot be invoked without \'new\'', t => {
 	t.throws(() => {
 		// eslint-disable-next-line new-cap
-		Response({statusCode, headers, body, url});
+		Response({
+			statusCode, headers, body, url,
+		});
 	});
 
 	t.notThrows(() => {
 		// eslint-disable-next-line no-new
-		new Response({statusCode, headers, body, url});
+		new Response({
+			statusCode, headers, body, url,
+		});
 	});
 });
 
@@ -89,7 +96,7 @@ test('response works with delayed listener attachment', async t => {
 	// Simulate delayed listener attachment like Got does
 	const result = await new Promise((resolve, reject) => {
 		setImmediate(() => {
-			getStream(response).then(resolve, reject);
+			getStream(response).catch(reject).then(resolve);
 		});
 	});
 
@@ -151,7 +158,7 @@ test('response works with decompress-response and delayed listeners', async t =>
 	// Simulate delayed listener attachment
 	const result = await new Promise((resolve, reject) => {
 		setImmediate(() => {
-			getStream(decompressed).then(resolve, reject);
+			getStream(decompressed).catch(reject).then(resolve);
 		});
 	});
 

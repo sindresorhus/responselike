@@ -5,6 +5,6 @@ import Response from './index.js';
 new Response({
 	statusCode: 200,
 	headers: {},
-	body: Buffer.from(''),
+	body: Buffer.from(''), // eslint-disable-line @typescript-eslint/no-unsafe-assignment
 	url: 'https://sindresorhus.com',
 });

@@ -1,4 +1,4 @@
-import {Buffer} from 'node:buffer';
+import {type Buffer} from 'node:buffer';
 import {Readable as ReadableStream} from 'node:stream';
 
 export type Options = {

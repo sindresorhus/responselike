@@ -1,6 +1,6 @@
 {
 	"name": "responselike",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"description": "A response-like object for mocking a Node.js HTTP response stream",
 	"license": "MIT",
 	"repository": "sindresorhus/responselike",

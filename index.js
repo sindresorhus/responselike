@@ -24,9 +24,17 @@ export default class Response extends ReadableStream {
 			throw new TypeError('Argument `url` should be a string');
 		}
 
+		let bodyPushed = false;
 		super({
 			read() {
-				this.push(body);
+				// Push body on first read, end stream on second read.
+				// This allows listeners to attach before data flows through pipes.
+				if (!bodyPushed) {
+					bodyPushed = true;
+					this.push(body);
+					return;
+				}
+
 				this.push(null);
 			},
 		});
@@ -35,5 +43,11 @@ export default class Response extends ReadableStream {
 		this.headers = lowercaseKeys(headers);
 		this.body = body;
 		this.url = url;
+
+		// `complete` is required for `mimic-response` used by `decompress-response`.
+		this.complete = false;
+		this.once('end', () => {
+			this.complete = true;
+		});
 	}
 }
